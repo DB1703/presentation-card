@@ -105,7 +105,7 @@ fun FeatureCardsRow(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun CharacterIntroduction(fullName: String, shortDescription: String, modifier: Modifier = Modifier) {
+fun CharacterIntroduction(fullName: String, modifier: Modifier = Modifier) {
     Column(
         modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -121,7 +121,7 @@ fun CharacterIntroduction(fullName: String, shortDescription: String, modifier: 
         )
         Image(
             painter = painterResource(R.drawable.swordsman),
-            contentDescription = "Person photograph",
+            contentDescription = "Person avatar",
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(210.dp)
@@ -139,7 +139,7 @@ fun MainContainer(fullName: String, shortDescription: String, modifier: Modifier
             .fillMaxSize()
             .background(color = Color(0xFF12140E))
     ) {
-        CharacterIntroduction("Lorem Ipsum", "Lorem ipsum sit amet dolor", modifier.padding(30.dp))
+        CharacterIntroduction("Lorem Ipsum", modifier.padding(30.dp))
         CuriousInformation(
             "More about me",
             "I'm still trying to figure it out who am I",
