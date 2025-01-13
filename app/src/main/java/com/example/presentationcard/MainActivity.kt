@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -41,15 +42,11 @@ import com.example.presentationcard.ui.theme.PresentationCardTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        //enableEdgeToEdge()
         setContent {
             PresentationCardTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    MainContainer(
-                        fullName = "Android",
-                        shortDescription = "",
-                        //modifier = Modifier.padding(innerPadding)
-                    )
+                    MainContainer(fullName = stringResource(R.string.franco_de_bernardi))
                 }
             }
         }
@@ -76,16 +73,16 @@ fun CuriousInformation (mainTitle: String, firstDetail: String, secondDetail: St
 }
 
 @Composable
-fun FeatureCard (cardDescription: String, icon: Painter,modifier: Modifier = Modifier) {
+fun FeatureCard (cardDescription: String, cardText: String, icon: Painter,modifier: Modifier = Modifier) {
     Box (modifier
-        .size(140.dp)
+        .size(150.dp)
         .background(color = Color(0xFF1F4E4B), shape = RoundedCornerShape(16.dp))
         .padding(15.dp)
     ) {
         Column (verticalArrangement = Arrangement.SpaceEvenly, modifier = Modifier.fillMaxSize()){
             Icon(painter = icon, contentDescription = "icon", tint = Color.White)
             Text(text = cardDescription, modifier = modifier, color = Color.White)
-            Text(text = "Here we go two line", color = Color.White)
+            Text(text = cardText, color = Color.White)
         }
     }
 }
@@ -94,13 +91,13 @@ fun FeatureCard (cardDescription: String, icon: Painter,modifier: Modifier = Mod
 fun FeatureCardsRow(modifier: Modifier = Modifier) {
     val state = rememberScrollState()
     Row(modifier.horizontalScroll(state)) {
-        FeatureCard("lorem ipsum", painterResource(R.drawable.comment_24px))
+        FeatureCard(stringResource(R.string.favourite_book), stringResource(R.string.red_storm_by_tom_clancy), painterResource(R.drawable.comment_24px))
         Spacer(modifier = Modifier.width(25.dp))
-        FeatureCard("lorem ipsum", painterResource(R.drawable.forest_24px))
+        FeatureCard(stringResource(R.string.best_place), stringResource(R.string.bariloche_argentina), painterResource(R.drawable.forest_24px))
         Spacer(modifier = Modifier.width(25.dp))
-        FeatureCard("lorem ipsum", painterResource(R.drawable.rocket_launch_24px))
+        FeatureCard(stringResource(R.string.coolest_thing), stringResource(R.string.x_43a_nasa_s_scramjet), painterResource(R.drawable.rocket_launch_24px))
         Spacer(modifier = Modifier.width(25.dp))
-        FeatureCard("lorem ipsum", painterResource(R.drawable.category_24px))
+        FeatureCard(stringResource(R.string.music), stringResource(R.string.mostly_indie),painterResource(R.drawable.category_24px))
     }
 }
 
@@ -133,17 +130,17 @@ fun CharacterIntroduction(fullName: String, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun MainContainer(fullName: String, shortDescription: String, modifier: Modifier = Modifier) {
+fun MainContainer(fullName: String, modifier: Modifier = Modifier) {
     Column(
         modifier
             .fillMaxSize()
             .background(color = Color(0xFF12140E))
     ) {
-        CharacterIntroduction("Lorem Ipsum", modifier.padding(30.dp))
+        CharacterIntroduction(fullName, modifier.padding(30.dp))
         CuriousInformation(
-            "More about me",
-            "I'm still trying to figure it out who am I",
-            "Still studying and learning things related with Computer Science",
+            stringResource(R.string.more_about_me),
+            stringResource(R.string.i_m_still_trying_to_figure_it_out_who_am_i),
+            stringResource(R.string.still_studying_and_learning_things_related_with_computer_science),
             painterResource(R.drawable.prescriptions_24px),
             painterResource(R.drawable.cognition_24px)
         )
@@ -154,6 +151,6 @@ fun MainContainer(fullName: String, shortDescription: String, modifier: Modifier
 @Composable
 fun GreetingPreview() {
     PresentationCardTheme {
-        MainContainer(fullName = "Franco De Bernardi", shortDescription = "")
+        MainContainer(fullName = stringResource(R.string.franco_de_bernardi))
     }
 }

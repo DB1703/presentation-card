@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">presentationCard</string>
+    <string name="favourite_book">Favourite book</string>
+    <string name="best_place">Best place</string>
+    <string name="coolest_thing">Coolest thing</string>
+    <string name="music">Music</string>
+    <string name="red_storm_by_tom_clancy">Red storm by Tom Clancy</string>
+    <string name="bariloche_argentina">Bariloche, Argentina</string>
+    <string name="x_43a_nasa_s_scramjet">X-43A Nasa\'s Scramjet</string>
+    <string name="mostly_indie">Mostly indie</string>
+    <string name="franco_de_bernardi">Franco De Bernardi</string>
+    <string name="more_about_me">More about me</string>
+    <string name="i_m_still_trying_to_figure_it_out_who_am_i">I\'m still trying to figure it out who am I</string>
+    <string name="still_studying_and_learning_things_related_with_computer_science">Still studying and learning things related with Computer Science</string>
 </resources>
