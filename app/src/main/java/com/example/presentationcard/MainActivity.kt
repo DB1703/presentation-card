@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -56,6 +57,25 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun CuriousInformation (mainTitle: String, firstDetail: String, secondDetail: String, firstIcon: Painter, secondIcon: Painter, modifier: Modifier = Modifier) {
+    Column (modifier = Modifier.padding(30.dp)) {
+        Text(text = mainTitle, color = Color.White, fontSize = 20.sp)
+        Spacer(modifier = Modifier.height(15.dp))
+        Row (modifier = Modifier) {
+            Icon(painter = firstIcon, contentDescription = "icon", tint = Color.White)
+            Spacer(modifier = Modifier.width(12.dp))
+            Text(text = firstDetail, color = Color.White)
+        }
+        Spacer(modifier = Modifier.height(10.dp))
+        Row (modifier = Modifier) {
+            Icon(painter = secondIcon, contentDescription = "icon", tint = Color.White)
+            Spacer(modifier = Modifier.width(12.dp))
+            Text(text = secondDetail, color = Color.White)
+        }
+    }
+}
+
+@Composable
 fun FeatureCard (cardDescription: String, icon: Painter,modifier: Modifier = Modifier) {
     Box (modifier
         .size(140.dp)
@@ -73,14 +93,14 @@ fun FeatureCard (cardDescription: String, icon: Painter,modifier: Modifier = Mod
 @Composable
 fun FeatureCardsRow(modifier: Modifier = Modifier) {
     val state = rememberScrollState()
-    Row(modifier.horizontalScroll(state).fillMaxSize()) {
+    Row(modifier.horizontalScroll(state)) {
         FeatureCard("lorem ipsum", painterResource(R.drawable.comment_24px))
         Spacer(modifier = Modifier.width(25.dp))
         FeatureCard("lorem ipsum", painterResource(R.drawable.forest_24px))
         Spacer(modifier = Modifier.width(25.dp))
         FeatureCard("lorem ipsum", painterResource(R.drawable.rocket_launch_24px))
         Spacer(modifier = Modifier.width(25.dp))
-        FeatureCard("lorem ipsum", painterResource(R.drawable.cognition_24px))
+        FeatureCard("lorem ipsum", painterResource(R.drawable.category_24px))
     }
 }
 
@@ -115,9 +135,18 @@ fun CharacterIntroduction(fullName: String, shortDescription: String, modifier: 
 @Composable
 fun MainContainer(fullName: String, shortDescription: String, modifier: Modifier = Modifier) {
     Column(
-        modifier.fillMaxSize().background(color = Color(0xFF12140E))
+        modifier
+            .fillMaxSize()
+            .background(color = Color(0xFF12140E))
     ) {
         CharacterIntroduction("Lorem Ipsum", "Lorem ipsum sit amet dolor", modifier.padding(30.dp))
+        CuriousInformation(
+            "More about me",
+            "I'm still trying to figure it out who am I",
+            "Still studying and learning things related with Computer Science",
+            painterResource(R.drawable.prescriptions_24px),
+            painterResource(R.drawable.cognition_24px)
+        )
     }
 }
 
