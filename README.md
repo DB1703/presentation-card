@@ -7,6 +7,6 @@ Basic Android app using Jetpack Compose & Kotlin as the final project for Unit 1
 
 As you can see, I added a horizontal scroll, which was super easy to implement in the code!
 
-<video width="320" height="240" controls>
+<video controls>
   <source src="./markdown/emulatorRecorder.mp4" type="video/mp4">
 </video>
