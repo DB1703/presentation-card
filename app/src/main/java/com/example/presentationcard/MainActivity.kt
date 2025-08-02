@@ -41,7 +41,7 @@ import com.example.presentationcard.ui.theme.PresentationCardTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //enableEdgeToEdge()
+        enableEdgeToEdge()
         setContent {
             PresentationCardTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
